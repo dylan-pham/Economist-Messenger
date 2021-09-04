@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 
 # retrieving urls from this week's edition
-soup = BeautifulSoup(requests.get("https://www.economist.com/weeklyedition/2021-08-28").text, "html.parser")
+soup = BeautifulSoup(requests.get("https://www.economist.com/weeklyedition/2021-09-04").text, "html.parser")
 
 matching_elements = soup.find_all(attrs={"class" : ["weekly-edition-wtw__link", "headline-link"]})
 
@@ -28,11 +28,12 @@ browser.find_element_by_xpath(r'//*[@id="contentIdForA11y3"]/div/div[4]/div/inpu
 time.sleep(2)
 browser.find_element_by_xpath(r'//*[@id="contentIdForA11y3"]/div/div[5]/div/input').send_keys(send_from_email)
 
-for url in urls[0:1]:
+for url in urls:
     browser.get(base_url + "https://economist.com" + url)
     time.sleep(5)
     send_button = browser.find_element_by_xpath(r'//*[@id="app"]/div[1]/div[4]/div[2]/button')
     browser.execute_script("arguments[0].click();", send_button)
-    time.sleep(5)
+    time.sleep(10)
+    print(url)
 
 browser.quit()

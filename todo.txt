@@ -1,2 +1,2 @@
-some way of deleting last week's articles
+some way of deleting last week's articles / or store in separte folder
 automatically update main page link based on date of past saturday
