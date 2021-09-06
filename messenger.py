@@ -28,7 +28,7 @@ browser.find_element_by_xpath(r'//*[@id="contentIdForA11y3"]/div/div[4]/div/inpu
 time.sleep(2)
 browser.find_element_by_xpath(r'//*[@id="contentIdForA11y3"]/div/div[5]/div/input').send_keys(send_from_email)
 
-for url in urls:
+for url in urls[::-1]:
     browser.get(base_url + "https://economist.com" + url)
     time.sleep(5)
     send_button = browser.find_element_by_xpath(r'//*[@id="app"]/div[1]/div[4]/div[2]/button')
